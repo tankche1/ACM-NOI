@@ -1,0 +1,16 @@
+3
+LOSE
+.o.x
+.o.o
+x...
+.x..
+WIN
+.o..
+xxoo
+x..o
+x..x
+TIE
+...o
+xo.x
+x.xo
+o...

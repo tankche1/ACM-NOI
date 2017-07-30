@@ -1,0 +1,1 @@
+G 欧拉定理 gcd(a,b)=1 则a^(Euler(b))=1(mod b)

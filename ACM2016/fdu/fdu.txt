@@ -1,0 +1,114 @@
+1.
+在线维护题目。
+(0) dfs序
+（1） 线段树
+（2） 主席树
+2.离线
+扫描线
+
+http://codeforces.com/contest/685/problem/D
+题意：给你n（100000）个点 第i次输出有多少k*k(k<=300)的矩形包含i个点 
+做法：把每个点考虑成对于左下端点为(x-k+1,x) (y-k+1,y)的矩形+1
+那么就是n个矩形并
+直接扫描线暴力nk搞
+
+
+http://codeforces.com/contest/685/problem/C
+题意：给你n个点(10^5) 求一个点他到其他点的最大曼哈顿距离最小。
+做法：二分最大距离.
+那么对于合法的x,y,z
+满足n个 |x-xi|+|y-yi|+|z-zi|<=r
+x+y+z-xi-yi-zi<=|x-xi|+|y-yi|+|z-zi|<=r
+有八个条件。
+得到
+...<=x+y+z<=...
+...<=-x+y+z<=...
+...<=x-y+z<=...
+...<=x+y-z<=...
+
+令A=-x+y+z B=x-y+z C=x+y-z
+得到A,B,C的限制及A+B+C的限制 且A,B,C同奇偶
+可解。
+
+http://codeforces.com/contest/685/problem/E
+题意：给你n个点（n<=1000) m条边 q个询问(m,q<=200000) 第i条边只能在时刻i前走 走完时间变成i
+每次询问(l,r,s,t) 问l时刻开始，能否在r时刻前从s走到t
+
+题解：
+O(nm) 做法 从右往左扫描l dp[i][j]表示i能走到j的最小的r
+
+O(nmlogm/32)做法 对询问分治 
+dpl[i][j]表示（I，m)这些边能否走到j(ui或vi为起点） 
+dpr[i][j]表示(m+1,i)这些边能否从j走到ui或vi
+
+http://acm.hdu.edu.cn/showproblem.php?pid=5798
+题意：给你a1,a2,...an 求最小的x让sum(|(ai^x)-(a_(i+1)^x))|)最小
+题解：分类讨论 每一位的贡献只取决于最高位和这一位 
+
+http://acm.hust.edu.cn/vjudge/contest/126348#problem/C
+题意：看图
+题解：维护1_1,1_2,i_1,i_2四个点的连通性然后转移
+
+http://acm.hdu.edu.cn/showproblem.php?pid=5823
+题意：问你n个点的最小色数（n<=18)
+题解：dp[st]=min(dp[st^st1]+1） st1是st子集且相互之间没有边。
+
+http://acm.hdu.edu.cn/showproblem.php?pid=5828
+题意：
+1 l r x : For each i in [l,r], change A[i] to A[i]+x
+2 l r : For each i in [l,r], change A[i] to ?A??√[i]?
+3 l r : Yuta wants Rikka to sum up A[i] for all i in [l,r]
+题解：一段区域开根不超过5次就会相同。当min=max时没必要开跟了。线段树维护。
+
+http://codeforces.com/contest/700/problem/C
+题意：n个点 m条边 有边权 求最小的代价(不超过两条边）让s，t不联通
+题解：先随便找一条路径，然后枚举删掉这条路径上的某条边，再找出桥。dfs一遍。
+
+http://codeforces.com/contest/700/problem/D
+题意：给你n个数 问一段区间的最短haffman编码长度
+题解：分块大法好。 我们知道haffman是贪心的把频率最小的不断合并。这题把<=weight的块扫一遍合并。>weight的再用堆合并。
+区间的话用莫队处理。
+复杂度O(nsqrt(n)+n*(weight+n/weight*log(n/weight))
+
+http://codeforces.com/contest/700/problem/E
+题意：给你一个串，定义a<b为a在b中至少出现两次 求最大的n使a1<a2<a3<...<an
+题解：我们可以发现 a1,a2... an的左端点可以不变。 那么问题变成固定左端点每次求一个最短的串包含当前串。用sa找到符合条件的串区间，取一个最近的，
+若不相交，直接扩展。
+相交的话，可以发现扩展次数是(real-cur)/(wh-i)+1 因为长度至少扩展两倍 。所以复杂度nlognlogn .
+
+http://acm.split.hdu.edu.cn/contests/contest_showproblem.php?pid=1002&cid=725
+题意：给一个长度为n的数字 每次询问[l,r]中有多少个不同的gcd的值 (连续子串）
+题解：首先根据gcd定理把gcd变为nloga个线段(l,r,x)
+那么从右往左扫描，加入线段，若有相同x则保留r小的那一个 
+用fwt维护 c[i]表示右端点为i的线段个数.
+
+Burnside:对于一个置换f，若着色方案s经过置换后不变，称s为f的不动点。不动点数目C(f),等价类数目为C(f)的平均值。
+
+
+http://acm.split.hdu.edu.cn/showproblem.php?pid=5730
+题意：f[i]=sum(f[i-j]*a[j]) (1<=j<=i) 给出a数组 求f[n]
+题解：分治+fft
+
+http://acm.split.hdu.edu.cn/showproblem.php?pid=5731
+题意：问的格子铺上的骨牌，并且不存在行或列分割线在不跨越骨牌的情况下分隔棋盘
+题解： 先求出any[n][m]表示无限制要求下n*m的方案
+枚举列分割线 得出每个列分割线下没有行分隔线的方案数 ans+=方案*(-1)^列分割线数目
+
+http://acm.split.hdu.edu.cn/showproblem.php?pid=5739
+题意:给一个图 连通块的val是w[i]的积 图的val是所有联通块val的和 问删掉每个点后图的val
+题解：找割点后dp 然后yy 被自己蠢哭
+
+http://acm.hdu.edu.cn/showproblem.php?pid=4787
+题意：
+给定T个测试数据
+n个操作 强制在线
++ 插入单词
+? 询问母串中有多少个子串 在上面出现过
+
+题解：
+建立两个ac自动机 小的每次做fail 节点数超过(sqrt(n)) 就并到大的里面 大的做一次fail
+复杂度nsqrt(n)
+
+欧拉定理 gcd(a,b)=1 则a^(Euler(b))=1(mod b)
+
+

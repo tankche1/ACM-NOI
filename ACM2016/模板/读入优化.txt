@@ -1,0 +1,7 @@
+void read(int &x){
+    int ch;
+    while (!isdigit(ch = getchar()));
+    x = ch - '0';
+    while (isdigit(ch = getchar()))
+        x = x * 10 + ch - '0';
+}

@@ -1,0 +1,271 @@
+Case #1:
+1.000
+0.000
+0.000
+1.000
+Case #2:
+infinity
+infinity
+infinity
+infinity
+Case #3:
+infinity
+infinity
+infinity
+infinity
+Case #4:
+infinity
+infinity
+infinity
+infinity
+Case #5:
+1.000
+0.000
+0.000
+1.000
+Case #6:
+infinity
+infinity
+infinity
+infinity
+Case #7:
+infinity
+infinity
+infinity
+infinity
+Case #8:
+3.000
+1.000
+3.500
+1.000
+Case #9:
+infinity
+infinity
+infinity
+infinity
+Case #10:
+infinity
+infinity
+infinity
+infinity
+Case #11:
+infinity
+infinity
+infinity
+infinity
+Case #12:
+infinity
+infinity
+infinity
+infinity
+Case #13:
+1.000
+0.000
+0.000
+0.000
+Case #14:
+infinity
+infinity
+infinity
+infinity
+Case #15:
+infinity
+infinity
+0.000
+infinity
+Case #16:
+infinity
+infinity
+infinity
+infinity
+Case #17:
+4.000
+infinity
+infinity
+0.000
+1 4
+1 4
+2 4
+1 3
+1 2
+1 1
+4 1
+1 2
+4 2
+1 1
+2 3
+Case #18:
+2.333
+1.333
+1.000
+1.333
+Case #19:
+infinity
+infinity
+infinity
+infinity
+Case #20:
+infinity
+infinity
+infinity
+infinity
+Case #21:
+infinity
+0.000
+infinity
+infinity
+Case #22:
+infinity
+infinity
+infinity
+infinity
+Case #23:
+1.000
+0.000
+0.000
+1.000
+Case #24:
+infinity
+infinity
+infinity
+infinity
+Case #25:
+infinity
+infinity
+infinity
+infinity
+Case #26:
+1.000
+infinity
+0.000
+0.000
+Case #27:
+infinity
+infinity
+infinity
+infinity
+Case #28:
+1.000
+0.000
+0.000
+0.000
+Case #29:
+infinity
+infinity
+infinity
+infinity
+Case #30:
+infinity
+0.000
+infinity
+0.000
+Case #31:
+infinity
+0.000
+infinity
+infinity
+Case #32:
+infinity
+infinity
+infinity
+infinity
+Case #33:
+1.000
+0.000
+0.000
+0.000
+Case #34:
+infinity
+infinity
+infinity
+infinity
+Case #35:
+infinity
+infinity
+0.000
+infinity
+Case #36:
+infinity
+infinity
+infinity
+infinity
+Case #37:
+infinity
+infinity
+infinity
+infinity
+Case #38:
+infinity
+infinity
+infinity
+infinity
+Case #39:
+infinity
+infinity
+infinity
+infinity
+Case #40:
+infinity
+infinity
+infinity
+infinity
+Case #41:
+infinity
+infinity
+infinity
+infinity
+Case #42:
+infinity
+infinity
+infinity
+0.000
+Case #43:
+infinity
+infinity
+infinity
+infinity
+Case #44:
+infinity
+infinity
+infinity
+0.000
+Case #45:
+infinity
+infinity
+infinity
+infinity
+Case #46:
+infinity
+infinity
+infinity
+infinity
+Case #47:
+infinity
+infinity
+infinity
+infinity
+Case #48:
+infinity
+0.000
+infinity
+infinity
+Case #49:
+infinity
+infinity
+0.000
+infinity
+Case #50:
+infinity
+0.000
+infinity
+infinity
+Case #51:
+infinity
+infinity
+infinity
+infinity
+Case #52:
+infinity
+infinity
+infinity
+infinity

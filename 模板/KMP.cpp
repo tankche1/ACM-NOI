@@ -1,0 +1,38 @@
+/*
+poj2406
+2015.7.11
+求最小循环节
+*/
+# include<stdio.h>
+# include<string.h>
+# include<algorithm>
+using namespace std;
+const int maxn=1000010;
+char s[maxn];
+int next[maxn];
+
+void getnext(char *s,int n){
+	int i=0,j=-1;
+	next[0]=-1;
+	while(i<n){
+		if(s[i]==s[j]||j==-1){
+			i++;j++;
+			next[i]=j;
+		}
+		else j=next[j];
+	}
+}
+
+int main()
+{
+	int n;
+	while(scanf("%s",s)!=EOF){
+		if(s[0]=='.') break;
+		n=strlen(s);
+		getnext(s,n);
+		int t=next[n];
+		if(n%(n-t)==0) printf("%d\n",n/(n-t));
+		else printf("1\n");
+	}
+	return 0;
+}

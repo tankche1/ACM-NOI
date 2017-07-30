@@ -1,0 +1,98 @@
+# include<stdio.h>
+# include<string.h>
+# include<algorithm>
+using namespace std;
+const int maxn=205<<1;
+const int maxm=10005;
+int n,m;
+int a[maxm],b[maxm],c[maxm];
+int first[maxn],nnext[maxm<<2],v[maxm<<2],bh[maxm<<2],edge;
+
+void add_edge(int a,int b,int c){
+	nnext[edge]=first[a];v[edge]=b;bh[edge]=c;
+	first[a]=edge++;
+}
+
+struct Twosat{
+	int dfn[maxn],low[maxn],st[maxn],tp;
+	bool vis[maxn];
+	int belong[maxn];
+	int need,idx,ans;
+	void tarjan(int u)
+{
+    dfn[u] = low[u] = ++idx;
+    vis[u] = 1;
+    st[++tp] = u;
+    int vv ;
+    for(int i = first[u]; i != -1; i = nnext[i])
+    {
+		if(bh[i]>=need) continue;
+       vv=v[i];
+        if(!dfn[vv])
+        {
+            tarjan(vv) ;
+            low[u] = min(low[u],low[vv]);
+        }
+        else if(vis[vv])
+            low[u] = min(low[u],dfn[vv]);
+    }
+    if(dfn[u] == low[u])
+    {
+        ans++;
+        while(1)
+        {
+            vv = st[tp--];
+            vis[vv] = 0;
+            belong[vv] = ans;
+            if(vv == u)
+                break;
+        }
+    }
+}
+bool solve(int ned)
+{
+	need=ned;
+    memset(vis,0,sizeof(vis));
+    memset(dfn,0,sizeof(dfn));
+    idx=tp = ans = 0;
+    for(int i = 0; i < 2*n; i++)
+        if(!dfn[i])
+            tarjan(i) ;
+    for(int i = 0; i < n; i++)
+        if(belong[2*i]==belong[(2*i)^1])//矛盾
+            return false ;
+    return true;
+}
+
+}twosat;
+
+
+int main(){
+	int tcase;
+	scanf("%d",&tcase);
+	while(tcase--){
+		scanf("%d%d",&n,&m);
+		memset(first,-1,sizeof(first));edge=0;
+		for(int i=0;i<m;i++){
+			scanf("%d%d%d",&a[i],&b[i],&c[i]);
+			if(c[i]==0){
+				add_edge(2*a[i],2*b[i]+1,i);add_edge(2*b[i],2*a[i]+1,i);
+			}
+			if(c[i]==1){
+				add_edge(2*a[i],2*b[i],i);add_edge(2*a[i]+1,2*b[i]+1,i);
+				add_edge(2*b[i],2*a[i],i);add_edge(2*b[i]+1,2*a[i]+1,i);
+			}
+			if(c[i]==2){
+				add_edge(2*a[i]+1,2*b[i],i);add_edge(2*b[i]+1,2*a[i],i);
+			}
+		}
+		int L=1,R=m,M;
+		while(L<=R){
+			M=(L+R)>>1;
+			if(twosat.solve(M)) L=M+1;
+			else R=M-1;
+		}
+		printf("%d\n",L-1);
+	}
+	return 0;
+}

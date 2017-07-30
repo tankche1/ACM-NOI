@@ -1,0 +1,45 @@
+//后缀自动机
+//SAM
+//Suffix Automation
+
+struct State{
+    int len;
+    State *par,*go[26];
+    State(){
+    }
+};
+State *root,*last;
+State seq[maxn*2];int seq_cnt;
+State *New(int _len){
+    State *o=&seq[seq_cnt++];
+    memset(o->go,0,sizeof(o->go));o->par=0;o->len=_len;
+    return o;
+}
+
+void extend(int w){
+    State *p=last;
+    State *np=New(p->len+1);
+    while(p&&p->go[w]==0) p->go[w]=np,p=p->par;
+    if(p==0) np->par=root;
+    else{
+        State *q=p->go[w];
+        if(q->len==p->len+1){
+            np->par=q;
+        }
+        else{
+            State *nq=New(p->len+1);
+            memcpy(nq->go,q->go,sizeof(q->go));
+            nq->par=q->par;
+            q->par=nq;
+            np->par=nq;
+            while(p&&p->go[w]==q)
+                p->go[w]=nq,p=p->par;
+        }
+    }
+    last=np;
+}
+
+
+void init(){
+    seq_cnt=0;root=New(0);last=root;
+}

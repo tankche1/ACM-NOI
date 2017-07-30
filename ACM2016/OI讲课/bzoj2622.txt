@@ -1,0 +1,69 @@
+/**************************************************************
+    Problem: 2622
+    User: tankche2
+    Language: C++
+    Result: Accepted
+    Time:9268 ms
+    Memory:62872 kb
+****************************************************************/
+ 
+#include<stdio.h>
+#include<string.h>
+# include<queue>
+#include<algorithm>
+using namespace std;
+const int maxn=100010;
+const int maxm=1000010;
+typedef long long LL;
+const LL INF=(LL)1<<60;
+int n,m,k;
+int first[maxn],next[maxm<<1],v[maxm<<1],w[maxm<<1],edge;
+ 
+void add_edge(int a,int b,int c){
+    next[edge]=first[a];
+    v[edge]=b;w[edge]=c;
+    first[a]=edge++;
+}
+ 
+bool ft[maxn],used[maxn];
+LL d[maxn];int p[maxn];
+ 
+struct HeapNode{
+    LL d;int u;
+    HeapNode() {}
+    HeapNode(LL d,int u):d(d),u(u) {}
+    bool operator < (const HeapNode &rhs)const{
+        return d>rhs.d;
+    }
+};
+priority_queue<HeapNode> Q;
+ 
+void dijkstra(){
+    for(int i=0;i<n;i++) d[i]=INF;
+    for(int i=0;i<k;i++)
+        d[p[i]]=0,ft[p[i]]=1,Q.push(HeapNode(0,p[i]));
+    while(!Q.empty()){
+        int x=Q.top().u;LL val=Q.top().d;Q.pop();
+        if(!ft[x]) {ft[x]=1;continue;}
+        if(used[x]) continue;
+        d[x]=val;
+        used[x]=1;
+        for(int e=first[x];e!=-1;e=next[e]){
+                Q.push(HeapNode(d[x]+w[e],v[e]));
+        }
+    }
+}
+ 
+int main(){
+    int a,b,c;
+    scanf("%d%d%d",&n,&m,&k);
+    memset(first,-1,sizeof(first));
+    for(int i=1;i<=m;i++){
+        scanf("%d%d%d",&a,&b,&c);
+        add_edge(a,b,c);add_edge(b,a,c);
+    }
+    for(int i=0;i<k;i++) scanf("%d",&p[i]);
+    dijkstra();
+    printf("%lld\n",d[0]);
+    return 0;
+}

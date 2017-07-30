@@ -1,0 +1,254 @@
+/**************************************************************
+    Problem: 2594
+    User: tankche2
+    Language: C++
+    Result: Accepted
+    Time:13968 ms
+    Memory:65656 kb
+****************************************************************/
+
+# include<stdio.h>
+# include<string.h>
+# include<vector>
+# include<algorithm>
+using namespace std;
+const int maxn=100010;
+const int maxm=1000010;
+int quan;
+int n,m,q;
+vector<int> ans;
+int getint(){
+    char ch = getchar();
+    for ( ; ch > '9' || ch < '0'; ch = getchar());
+    int tmp = 0;
+    for ( ; '0' <= ch && ch <= '9'; ch = getchar())
+      tmp = tmp * 10 + int(ch) - 48;
+    return tmp;
+}
+
+struct Edge{
+    int a,b,c,num;
+    bool del;
+    Edge(){del=false;}
+    Edge(int a,int b,int c):a(a),b(b),c(c) {del=false;}
+};
+Edge edges[maxm];
+int ed[maxm];
+bool cmp(Edge x,Edge y){
+    return x.a==y.a?x.b<y.b:x.a<y.a;
+}
+bool cmp2(int x,int y){
+    return edges[x].c<edges[y].c;
+}
+
+struct Duty{
+    int op,x,y,bh;
+    Duty(){}
+    Duty(int op,int x,int y):op(op),x(x),y(y) {}
+};
+Duty duty[maxn];
+
+int find_pos(int a,int b){
+    return lower_bound(edges+1,edges+m+1,Edge(a,b,0),cmp)-edges;
+}
+int p[maxn];
+
+int find(int x){
+    if(x==p[x]) return x;return p[x]=find(p[x]);
+}
+
+struct Node{
+    Node *ch[2],*f,*p;
+    int v,_max,bh;
+    bool rev;
+    Node() {}
+};
+Node *null;
+Node seq[maxn+maxm];int seq_cnt=0;
+
+Node *New(int bh,int val){
+    Node *o=&seq[seq_cnt++];
+    o->v=o->_max=val;o->bh=bh;
+    o->ch[0]=o->ch[1]=o->f=null;
+    o->p=o;o->rev=false;
+    return o;
+}
+
+void maintain(Node *o){
+    o->p=o;o->_max=o->v;
+    if(o->ch[0]->_max>o->_max) o->_max=o->ch[0]->_max,o->p=o->ch[0]->p;
+    if(o->ch[1]->_max>o->_max) o->_max=o->ch[1]->_max,o->p=o->ch[1]->p;
+}
+
+void pushdown(Node *o){
+    if(o->rev){
+        swap(o->ch[0],o->ch[1]);
+        o->ch[0]->rev^=1;o->ch[1]->rev^=1;
+        o->rev=false;
+    }
+}
+
+struct LCT{
+    Node *tree[maxn+maxm];
+
+    bool havef(Node *o){
+        return (o->f!=null)&&(o->f->ch[0]==o||o->f->ch[1]==o);
+    }
+
+    void Rotate(Node *p){
+        int d=p->f->ch[1]==p?0:1;
+        Node *o=p->f;
+        o->ch[!d]=p->ch[d];p->ch[d]->f=o;
+        if(havef(o)) o->f->ch[o->f->ch[1]==o]=p;
+        p->ch[d]=o;
+        p->f=o->f;
+        o->f=p;
+        maintain(o);maintain(p);
+    }
+
+    void splay(Node *o){
+        Node *p;
+        //pushdown(o);//必须有 因为Access中有给o->ch[1]赋值 所以splay的时候要pushdown
+        while(havef(o)){
+            p=o->f;
+            if(havef(p)){
+                pushdown(p->f);
+                pushdown(p);
+                pushdown(o);
+                p=p->f;
+                int d=p->ch[1]==o->f;
+                int dd=o->f->ch[1]==o;
+                if(d==dd)
+                    Rotate(p->ch[d]),Rotate(o);
+                else Rotate(o),Rotate(o);
+            }
+            else pushdown(p),pushdown(o),Rotate(o);
+        }
+    }
+
+    void Access(Node *x){
+        Node *y=null;
+        while(x!=null){
+            splay(x);
+            pushdown(x);
+            x->ch[1]=y;
+            maintain(x);
+            y=x;
+            x=x->f;
+        }
+    }
+
+    void print(Node *x){
+        pushdown(x);
+        if(x->ch[0]!=null&&x->ch[0]->f==x) print(x->ch[0]);
+        if(x->ch[1]!=null&&x->ch[1]->f==x) print(x->ch[1]);
+    }
+
+    void makeroot(Node *x){
+        Access(x);
+        splay(x);
+        x->rev^=1;
+    }
+
+    void Link(Node *x,Node *y){
+        makeroot(x);
+        x->f=y;
+            //if(quan==99968) puts("make");
+        Access(x);//if(quan==99968) puts("ACC");
+    }
+
+    void Cut(Node *x,Node *y){
+        Access(x);
+        splay(y);
+        if(y->f==x){
+            y->f=null;
+        }
+        else {
+            Access(y);
+            splay(x);
+            if(x->f==y){
+                x->f=null;
+            }
+        }
+    }
+
+    Node* query(Node *x,Node *y){
+        makeroot(x);
+        Access(y);
+        splay(y);
+        return y->p;
+    }
+
+    Node *getroot(Node *x){
+        Access(x);splay(x);
+        while(x->ch[0]!=null) x=x->ch[0];
+        return x;
+    }
+
+    void modify(int e){
+        Node *x=tree[edges[e].a],*y=tree[edges[e].b];
+        if(getroot(x)!=getroot(y)) {Link(x,tree[e+n]);Link(tree[e+n],y);return;}
+        Node *r=query(x,y);
+        if(r->v>edges[e].c){
+            Cut(r,tree[edges[r->bh-n].a]);//if(quan==99968)puts("CUT");
+            Cut(r,tree[edges[r->bh-n].b]);// if(quan==99968)puts("CUT");
+            Link(x,tree[e+n]);  //if(quan==99968)puts("CUT");
+                Link(tree[e+n],y);//    if(quan==99968)puts("CUT");
+        }
+    }
+
+};
+LCT lct;
+
+int main(){
+    //freopen("tube1.in","r",stdin);
+    //freopen("tube.out","w",stdout);
+    null=new Node();null->v=null->_max=0;null->ch[1]=null->ch[0]=null->f=null->p=NULL;null->bh=999;
+    int a,b,c;
+    int op,x,y;
+    scanf("%d%d%d",&n,&m,&q);
+    for(int i=1;i<=m;i++)
+        a=getint(),b=getint(),c=getint(),edges[i]=Edge(a,b,c),edges[i].num=i;
+    sort(edges+1,edges+1+m,cmp);
+    for(int i=1;i<=q;i++){
+        op=getint(),x=getint(),y=getint();
+        duty[i]=Duty(op,x,y);
+        if(op==2){
+            duty[i].bh=find_pos(x,y);
+            edges[duty[i].bh].del=true;
+        }
+    }
+    for(int i=1;i<=n;i++)
+        lct.tree[i]=New(i,0);
+    for(int i=1;i<=m;i++)
+        lct.tree[n+i]=New(n+i,edges[i].c);
+    for(int i=1;i<=m;i++)
+        ed[i]=i;
+    sort(ed+1,ed+m+1,cmp2);
+    for(int i=1;i<=n;i++)
+        p[i]=i;
+    for(int i=1;i<=m;i++){
+        int e=ed[i];
+        if(!edges[e].del){
+            int px=find(edges[e].a),py=find(edges[e].b);
+            if(px!=py){
+                p[px]=py;
+                lct.Link(lct.tree[edges[e].a],lct.tree[n+e]);
+                lct.Link(lct.tree[n+e],lct.tree[edges[e].b]);
+            }
+        }
+    }
+
+    for(int i=q;i>=1;i--){
+        quan=i;
+        if(duty[i].op==1)
+            ans.push_back(lct.query(lct.tree[duty[i].x],lct.tree[duty[i].y])->v);
+        else{
+            lct.modify(duty[i].bh);
+        }
+    }
+    //puts("OH");
+    for(int i=ans.size()-1;i>=0;i--)
+        printf("%d\n",ans[i]);
+    return 0;
+}

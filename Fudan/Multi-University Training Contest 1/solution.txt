@@ -1,0 +1,16 @@
+hdu5288 乱搞
+hdu5289 单调+set
+hdu5290 
+状态设计很重要 up[i][j]i点还能向上j距离的最小点数 
+down[i][j] i子树中未被破坏的点的最远距离为j的最小点数
+hdu5291 显然的dp 显然的有规律的dp
+hdu5292 玩魔方 反正我不会
+hdu5293 树形dp+维护链上点权
+hdu5294 第一问显然最小割 第二问直接找边数最小的最短路
+hdu5295 有趣的几何题 http://www.mamicode.com/info-detail-975778.html
+hdu5296 点到链的距离求法+神奇的dfs序 dis[u]-dis[lca(x,u)]-dis[lca(y,u)]+dis[lca(x,y)]
+hdu5297 容斥+迭代
+hdu5298 文学题
+
+
+

@@ -1,0 +1,400 @@
+Case #1:
+Combo:5 Length:9
+4 3
+RURURDLDD
+Case #2:
+Combo:7 Length:9
+1 5
+DDDDLULUR
+Case #3:
+Combo:6 Length:8
+4 5
+DRUULLDD
+Case #4:
+Combo:6 Length:8
+1 2
+DRULLDDR
+Case #5:
+Combo:6 Length:8
+4 1
+RRRDRUUL
+Case #6:
+Combo:6 Length:7
+1 6
+DDLLLLL
+Case #7:
+Combo:7 Length:9
+4 2
+RULLDDRUU
+Case #8:
+Combo:5 Length:9
+5 4
+ULUURDLLL
+Case #9:
+Combo:5 Length:9
+3 4
+RDLULLDLU
+Case #10:
+Combo:5 Length:8
+1 3
+LDRDRRDR
+Case #11:
+Combo:5 Length:5
+4 2
+DRURR
+Case #12:
+Combo:6 Length:8
+1 1
+DRRDDRDR
+Case #13:
+Combo:5 Length:9
+4 1
+DRUURULLU
+Case #14:
+Combo:7 Length:9
+4 1
+RRRRRDLLL
+Case #15:
+Combo:5 Length:9
+3 1
+RRRRRULUL
+Case #16:
+Combo:6 Length:6
+4 5
+URULUR
+Case #17:
+Combo:5 Length:8
+5 5
+LLLURRUU
+Case #18:
+Combo:5 Length:9
+3 6
+LLDLDRUUU
+Case #19:
+Combo:4 Length:9
+3 1
+RDRULDRRD
+Case #20:
+Combo:6 Length:9
+4 5
+DLULUUULL
+Case #21:
+Combo:4 Length:6
+3 6
+LLLDLU
+Case #22:
+Combo:6 Length:8
+2 4
+LLDRRDRR
+Case #23:
+Combo:5 Length:9
+2 3
+DDLURUULL
+Case #24:
+Combo:5 Length:8
+4 2
+URURDDRU
+Case #25:
+Combo:6 Length:7
+3 3
+DLURDLL
+Case #26:
+Combo:5 Length:9
+3 6
+ULDDLLULD
+Case #27:
+Combo:6 Length:9
+3 5
+ULLDDDLUR
+Case #28:
+Combo:5 Length:9
+4 2
+RUURRRDDL
+Case #29:
+Combo:4 Length:9
+3 6
+LLULDRDRD
+Case #30:
+Combo:5 Length:8
+1 4
+DLLDDRRU
+Case #31:
+Combo:5 Length:9
+3 6
+LULDRDDLL
+Case #32:
+Combo:5 Length:9
+2 3
+RURDLDRUR
+Case #33:
+Combo:5 Length:8
+1 1
+DDRRRDDR
+Case #34:
+Combo:6 Length:9
+2 4
+DRDLULDRR
+Case #35:
+Combo:6 Length:9
+1 2
+DRURDDRRU
+Case #36:
+Combo:6 Length:9
+4 1
+DRRUUULLU
+Case #37:
+Combo:6 Length:7
+3 3
+RDLDRUR
+Case #38:
+Combo:5 Length:7
+4 4
+UULDLDD
+Case #39:
+Combo:5 Length:9
+2 6
+LLDDLLDRR
+Case #40:
+Combo:6 Length:9
+5 4
+URUURDLLL
+Case #41:
+Combo:6 Length:9
+2 3
+DDRDLLULU
+Case #42:
+Combo:4 Length:7
+5 4
+LLURDLL
+Case #43:
+Combo:7 Length:8
+5 3
+ULURRRUU
+Case #44:
+Combo:5 Length:7
+3 2
+URRDDDR
+Case #45:
+Combo:5 Length:9
+3 4
+RULLDRDDL
+Case #46:
+Combo:6 Length:8
+4 5
+LLLDRURU
+Case #47:
+Combo:6 Length:9
+2 5
+DLLDRDLLL
+Case #48:
+Combo:5 Length:9
+4 6
+DLLULUULD
+Case #49:
+Combo:5 Length:9
+4 1
+DRURUURUL
+Case #50:
+Combo:5 Length:9
+2 4
+LDDRRULUL
+Case #51:
+Combo:5 Length:8
+3 4
+LULLDRDD
+Case #52:
+Combo:6 Length:7
+2 6
+DLULLLL
+Case #53:
+Combo:4 Length:9
+2 6
+LULLDDDLD
+Case #54:
+Combo:6 Length:9
+3 6
+DLUULLDLL
+Case #55:
+Combo:6 Length:9
+1 4
+DLDRRDDRU
+Case #56:
+Combo:5 Length:9
+5 2
+URRULUULL
+Case #57:
+Combo:6 Length:9
+4 4
+DRUUUULLL
+Case #58:
+Combo:4 Length:9
+2 2
+DLDRRRRUR
+Case #59:
+Combo:7 Length:9
+3 1
+RRDRURULL
+Case #60:
+Combo:4 Length:6
+3 5
+DLLLUL
+Case #61:
+Combo:6 Length:9
+3 2
+RDRULLDDR
+Case #62:
+Combo:5 Length:9
+1 5
+DLLLDDLUR
+Case #63:
+Combo:5 Length:7
+1 6
+DLLDRDL
+Case #64:
+Combo:5 Length:8
+4 2
+DRRRURUL
+Case #65:
+Combo:5 Length:9
+3 4
+RRDLDLLUL
+Case #66:
+Combo:5 Length:9
+2 5
+URDLLDDRD
+Case #67:
+Combo:6 Length:9
+5 4
+RRULULUUR
+Case #68:
+Combo:6 Length:9
+5 1
+UURURDRUU
+Case #69:
+Combo:4 Length:7
+5 6
+UULDLDL
+Case #70:
+Combo:6 Length:7
+2 1
+RRRDLUR
+Case #71:
+Combo:5 Length:9
+2 3
+DDRRRULDL
+Case #72:
+Combo:6 Length:8
+5 4
+UULUURRR
+Case #73:
+Combo:5 Length:9
+5 5
+LLULURUUR
+Case #74:
+Combo:6 Length:9
+4 6
+UULLDLDLD
+Case #75:
+Combo:5 Length:7
+5 1
+RUURURU
+Case #76:
+Combo:6 Length:9
+5 1
+RUURRDLLU
+Case #77:
+Combo:6 Length:8
+1 3
+LDRRULLL
+Case #78:
+Combo:5 Length:4
+5 1
+URUL
+Case #79:
+Combo:6 Length:9
+5 4
+URURULDLL
+Case #80:
+Combo:5 Length:8
+2 2
+DDRUURRR
+Case #81:
+Combo:6 Length:7
+4 3
+RRUURUL
+Case #82:
+Combo:6 Length:8
+4 5
+UUULLDDD
+Case #83:
+Combo:6 Length:9
+4 6
+LDLLULURR
+Case #84:
+Combo:6 Length:9
+1 3
+DRDDLLLUU
+Case #85:
+Combo:5 Length:7
+2 6
+DLLLDLL
+Case #86:
+Combo:5 Length:8
+4 2
+DRURRRUL
+Case #87:
+Combo:5 Length:9
+4 5
+RDLLUUULL
+Case #88:
+Combo:4 Length:9
+2 2
+URDRRDLDL
+Case #89:
+Combo:5 Length:8
+2 3
+DDDLULDR
+Case #90:
+Combo:5 Length:9
+1 1
+DRDRRRDDL
+Case #91:
+Combo:5 Length:9
+5 6
+LLULDRULU
+Case #92:
+Combo:6 Length:9
+2 1
+RRURRDDDL
+Case #93:
+Combo:5 Length:7
+4 6
+LDLLULU
+Case #94:
+Combo:5 Length:9
+1 2
+RRDRDDLUR
+Case #95:
+Combo:5 Length:7
+4 5
+DLLURUL
+Case #96:
+Combo:1 Length:1
+1 1
+D
+Case #97:
+Combo:7 Length:9
+4 1
+DRURRULDR
+Case #98:
+Combo:10 Length:3
+2 1
+RRR
+Case #99:
+Combo:10 Length:8
+2 3
+RRDLULLD
+Case #100:
+Combo:5 Length:8
+2 5
+DDRULDLU

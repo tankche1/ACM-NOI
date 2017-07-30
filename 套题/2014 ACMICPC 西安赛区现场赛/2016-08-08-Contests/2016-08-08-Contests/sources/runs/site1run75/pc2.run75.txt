@@ -1,0 +1,15 @@
+
+
+CSUS Programming Contest System
+Version 9.3.2 20160615 (Wednesday, June 15th 2016 04:04 UTC) Java ver 1.7.0_101 build 3449 Linux 3.16.0-30-generic (i386) 
+
+Contest on Mon Aug 08 18:49:20 CST 2016
+
+Run   : 75
+Site  : 1
+Team  : TEAM7 @ site 1
+Prob  : G
+Lang  : GNU C++
+Elaps : 111
+
+done at Mon Aug 08 20:47:10 CST 2016

@@ -1,0 +1,36 @@
+2
+15
+Defender 23 45
+Midfielder 178 85
+Goalkeeper 57 50
+Goalkeeper 57 50
+Defender 0 45
+Forward 6 60
+Midfielder 20 50
+Goalkeeper 0 50
+Midfielder 64 65
+Midfielder 109 70
+Forward 211 100
+Defender 0 40
+Defender 29 45
+Midfielder 57 60
+Defender 52 45
+800
+15
+Defender 23 45
+Midfielder 178 85
+Goalkeeper 57 50
+Goalkeeper 57 50
+Defender 0 45
+Forward 6 60
+Midfielder 20 50
+Goalkeeper 0 50
+Midfielder 64 65
+Midfielder 109 70
+Forward 211 100
+Defender 0 40
+Defender 29 45
+Midfielder 57 60
+Defender 52 45
+600
+
